@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     public var arcAngle: CGFloat = 2.4
     public var needleColor: UIColor = UIColor(red: 18/255.0, green: 112/255.0, blue: 178/255.0, alpha: 1.0)
-    public var needleValue: CGFloat = 0
+    public var needleValue: CGFloat = 1.55
     
     public var applyShadow: Bool = true {
         didSet {
@@ -182,28 +182,48 @@ class ViewController: UIViewController {
         let theD = (radians - thisRadians)/2
         firstAngle += theD
         let needleValue = radian(for: self.needleValue) + firstAngle
-        animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue:self.fromvalue1, toValue: self.tovalue1, duration:CFTimeInterval(self.durationValue1)) {
-        //    self.animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: self.fromvalue1, toValue: self.tovalue1, duration: CFTimeInterval(self.durationValue1), callBack: {})
+        if (firstTime)
+        {
+            fromvalue1 = 1.55
+            tovalue1 = 4.7
+            durationValue1 = 1.5
+            animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue:self.fromvalue1, toValue: self.tovalue1, duration:CFTimeInterval(self.durationValue1)) {
+                
+            self.animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: self.tovalue1, toValue: self.fromvalue1, duration: CFTimeInterval(self.durationValue1), callBack: {
+                self.firstTime = false
+            })
+            }
+            
+        }
+        else{
+            
+                animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue:self.fromvalue1, toValue: self.tovalue1, duration:CFTimeInterval(self.durationValue1)) {
+                    
+                }
+          
+           
         }
     }
     
     func animate(triangleLayer: CAShapeLayer, shadowLayer:CAShapeLayer, fromValue: CGFloat, toValue:CGFloat, duration: CFTimeInterval, callBack:@escaping ()->Void) {
-        // 1
-        CATransaction.begin()
-        let spinAnimation1 = CABasicAnimation(keyPath: "transform.rotation.z")
-        spinAnimation1.fromValue = fromValue//radian(for: fromValue)
-        spinAnimation1.toValue = toValue//radian(for: toValue)
-        spinAnimation1.duration = duration
-        spinAnimation1.fillMode = CAMediaTimingFillMode.forwards
-        spinAnimation1.isRemovedOnCompletion = false
-        
-        CATransaction.setCompletionBlock {
-            callBack()
-        }
-        // 2
-        triangleLayer.add(spinAnimation1, forKey: "indeterminateAnimation")
-        shadowLayer.add(spinAnimation1, forKey: "indeterminateAnimation")
-        CATransaction.commit()
+       
+            CATransaction.begin()
+            let spinAnimation1 = CABasicAnimation(keyPath: "transform.rotation.z")
+            spinAnimation1.fromValue = fromValue//radian(for: fromValue)
+            spinAnimation1.toValue = toValue//radian(for: toValue)
+            spinAnimation1.duration = duration
+            spinAnimation1.fillMode = CAMediaTimingFillMode.forwards
+            spinAnimation1.isRemovedOnCompletion = false
+            
+            CATransaction.setCompletionBlock {
+                callBack()
+            }
+            // 2
+            triangleLayer.add(spinAnimation1, forKey: "indeterminateAnimation")
+            shadowLayer.add(spinAnimation1, forKey: "indeterminateAnimation")
+            CATransaction.commit()
+      
+       
     }
     
     
@@ -222,20 +242,22 @@ class ViewController: UIViewController {
     
     
     @IBOutlet var pushbtn: UIButton!
-    var fromvalue1: CGFloat = 1
-     var tovalue1: CGFloat = 1
+    var fromvalue1: CGFloat = 1.56
+     var tovalue1: CGFloat = 1.56
      var durationValue1: CGFloat = 1.5
+    public var firstTime: Bool = true
      //var fromvalue1: CGFloat = 2.4
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.drawGauge()
         pushbtn.addTarget(self, action: #selector(buttonAction), for: UIControl.Event.touchUpInside)
         // Do any additional setup after loading the view, typically from a nib.
     }
     @objc func buttonAction(sender: UIButton!) {
         print("Button tapped")
-        fromvalue1 = 1
-        tovalue1 = 5
+        fromvalue1 = 1.55
+        tovalue1 = 4.7
         durationValue1 = 1.5
         
         self.drawGauge()

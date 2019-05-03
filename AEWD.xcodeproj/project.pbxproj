@@ -17,6 +17,7 @@
 		3B2F477C227AFDB900DDB968 /* ABGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F4777227AFDB900DDB968 /* ABGaugeView.swift */; };
 		3B2F477D227AFDB900DDB968 /* ArcModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F4779227AFDB900DDB968 /* ArcModel.swift */; };
 		3B2F477F227B1AA300DDB968 /* yellow01.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2F477E227B1AA300DDB968 /* yellow01.png */; };
+		3B35AEC3227C46FD000C28A9 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B35AEC2227C46FD000C28A9 /* green.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		3B2F4778227AFDB900DDB968 /* ABGaugeViewKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABGaugeViewKit.h; sourceTree = "<group>"; };
 		3B2F4779227AFDB900DDB968 /* ArcModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcModel.swift; sourceTree = "<group>"; };
 		3B2F477E227B1AA300DDB968 /* yellow01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow01.png; sourceTree = "<group>"; };
+		3B35AEC2227C46FD000C28A9 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				3B2F4774227AFDA800DDB968 /* GAUGE */,
 				3B2F4762227AF63200DDB968 /* AppDelegate.swift */,
 				3B2F4764227AF63200DDB968 /* ViewController.swift */,
+				3B35AEC2227C46FD000C28A9 /* green.png */,
 				3B2F477E227B1AA300DDB968 /* yellow01.png */,
 				3B2F4766227AF63200DDB968 /* Main.storyboard */,
 				3B2F4769227AF63700DDB968 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B35AEC3227C46FD000C28A9 /* green.png in Resources */,
 				3B2F477F227B1AA300DDB968 /* yellow01.png in Resources */,
 				3B2F476D227AF63700DDB968 /* LaunchScreen.storyboard in Resources */,
 				3B2F476A227AF63700DDB968 /* Assets.xcassets in Resources */,
